@@ -1,4 +1,10 @@
 :host {
   display: block;
   height: 100%;
+
+  .navbar {
+    justify-content: space-between;
+  }
 }
+
+

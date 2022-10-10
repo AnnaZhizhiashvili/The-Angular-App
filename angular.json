@@ -111,5 +111,7 @@
       }
     }
   },
-  "defaultProject": "The-Angular-App"
+  "cli": {
+    "analytics": false
+  }
 }

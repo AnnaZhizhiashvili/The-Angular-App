@@ -22,6 +22,34 @@
       "password": "$2a$10$uo9GtMdayxLO1PonNowAsOF5aeqW55G1Puec65rQMSQTW2vSlzr5u",
       "gender": "'Male'",
       "id": "gooTn9e"
+    },
+    {
+      "email": "guram@gmail.com",
+      "password": "$2a$10$iH1ICFqAwZ0cMdfAha7hFOikRPF5q.rVZOMOUh2AlIjWPNxOHpCvK",
+      "userName": "guram",
+      "gender": "'Female'",
+      "id": "uXaT1Hh"
+    },
+    {
+      "email": "m@gmail.com",
+      "password": "$2a$10$jHd6WdB1m6Wfi3NheXjf2eQJZXHgnxAujbroAonCJ2b.U1yAJlyGS",
+      "userName": "mamuka",
+      "gender": "'Male'",
+      "id": "fpY1aDc"
+    },
+    {
+      "email": "ma@gmail.com",
+      "password": "$2a$10$GU8ES2raBqWnKC7GEv2WSOd1zJ6A7oxhisG3Ua7A1I8MOaSP9Yog2",
+      "userName": "mam",
+      "gender": "'Male'",
+      "id": "xE2V7sM"
+    },
+    {
+      "email": "mamuka@gmail.com",
+      "password": "$2a$10$TsIbLsZs9dnhdTEn04HZhOw5DzDr1OO7ZJ9C5kD6yWCoLrT4VVZL2",
+      "userName": "mamuka",
+      "gender": "'Male'",
+      "id": "ywRlRG1"
     }
   ]
 }

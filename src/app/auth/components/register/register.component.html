@@ -1,22 +1,25 @@
 <div class="d-flex flex-column container-box">
-  <h2>Register</h2>
+  <h2 class="pb-3">Register</h2>
   <form class="d-flex flex-column align-items-center" [formGroup]="form">
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
       <mat-icon matPrefix>email</mat-icon>
       <input matInput formControlName="email">
+      <mat-error *ngIf="form.get('email')?.hasError('required')">This field cannot be blank</mat-error>
+      <mat-error *ngIf="form.get('email')?.hasError('pattern')">Please use valid Email format</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-icon matPrefix>person_outline</mat-icon>
       <mat-label>Username</mat-label>
+      <mat-error *ngIf="form.get('userName')?.hasError('min')">Username should contain at least 4 symbols.</mat-error>
       <input matInput formControlName="userName">
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-icon matPrefix>lock_outline</mat-icon>
       <mat-label>password</mat-label>
-      <input matInput formControlName="password">
+      <input matInput formControlName="password" type="password">
     </mat-form-field>
 
     <mat-radio-group aria-label="Select a Gender" formControlName="gender" class="d-flex gap-3">
@@ -26,6 +29,8 @@
 
     <button class="btn btn-primary mt-4" type="submit" (click)="registerUser()">Register</button>
   </form>
+
+  <a [routerLink]="'/login'" class="badge badge-primary mt-3">Already have an Account?</a>
 </div>
 
 
