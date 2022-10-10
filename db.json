@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "ana@gmail.com",
+      "password": "anukebi47"
+    },
+    {
+      "email": "mari@gmail.com",
+      "password": "$2a$10$1q6MrfbSeJHJh1uNSOK7ue1.7REcPwt240KwA6Vp4mieHYg42REke",
+      "gender": "'Female'",
+      "id": "8sZtGEd"
+    },
+    {
+      "email": "a@gmail.com",
+      "password": "$2a$10$yHhlCyTugWyM0TO0yt93juD6C5Lm73gZEg0dUdqlbNv1cvGkiMb6G",
+      "gender": "'Female'",
+      "id": "Fa-Cm4Q"
+    },
+    {
+      "email": "ana2@gmail.com",
+      "password": "$2a$10$uo9GtMdayxLO1PonNowAsOF5aeqW55G1Puec65rQMSQTW2vSlzr5u",
+      "gender": "'Male'",
+      "id": "gooTn9e"
+    }
+  ]
+}

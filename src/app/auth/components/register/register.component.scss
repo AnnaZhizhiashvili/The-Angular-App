@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  height: 100%;
+}
+.container-box {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+form {
+  mat-form-field, mat-radio-group {
+    width: 100%;
+  }
+  button {
+    width: 200px;
+    align-self: end;
+  }
+}
