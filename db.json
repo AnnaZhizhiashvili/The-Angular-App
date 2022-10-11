@@ -50,6 +50,13 @@
       "userName": "mamuka",
       "gender": "'Male'",
       "id": "ywRlRG1"
+    },
+    {
+      "email": "gurami@gmail.com",
+      "password": "$2a$10$hqpOii6abrAMFXZTlK5B3eLedFqllqcAtyYEOl4FT1nArsFuryINm",
+      "userName": "gurami22",
+      "gender": "'Male'",
+      "id": "cpxQeWA"
     }
   ]
 }
