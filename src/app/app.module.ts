@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { ToastrModule } from 'ngx-toastr';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { Store } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     AuthModule,
-    DashboardModule
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
