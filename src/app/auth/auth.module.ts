@@ -9,31 +9,28 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { MatIconModule } from '@angular/material/icon';
+import { reducers } from './store/reducers';
+import { StoreModule } from '@ngrx/store';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login'
+    redirectTo: 'login',
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
-]
+];
 
 @NgModule({
-  declarations: [
-    RegisterComponent,
-    LoginComponent
-  ],
-  exports: [
-    RegisterComponent
-  ],
+  declarations: [RegisterComponent, LoginComponent],
+  exports: [RegisterComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -41,8 +38,9 @@ const routes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     MatInputModule,
-    RouterModule.forChild(routes),
     MatIconModule,
-  ]
+    RouterModule.forChild(routes),
+    StoreModule.forFeature('auth', reducers),
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}
