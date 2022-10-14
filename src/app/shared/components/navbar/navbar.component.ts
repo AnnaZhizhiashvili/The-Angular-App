@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { logOutAction } from '../../../auth/store/actions/login.action';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-navbar',
