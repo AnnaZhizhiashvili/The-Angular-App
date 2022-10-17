@@ -3,24 +3,33 @@
   <form class="d-flex flex-column" [formGroup]="form">
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email">
+      <input matInput formControlName="email" />
       <mat-icon matPrefix>email</mat-icon>
-      <mat-error *ngIf="form.get('email')?.hasError('required')">This field cannot be blank</mat-error>
-      <mat-error *ngIf="form.get('email')?.hasError('pattern')">Please use valid Email format</mat-error>
+      <mat-error *ngIf="form.get('email')?.hasError('required')"
+        >This field cannot be blank</mat-error
+      >
+      <mat-error *ngIf="form.get('email')?.hasError('email')"
+        >Please use valid Email format</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>password</mat-label>
-      <input matInput formControlName="password" type="password">
+      <input matInput formControlName="password" type="password" />
       <mat-icon matPrefix>lock_outline</mat-icon>
-      <mat-error *ngIf="form.get('password')?.hasError('required')">This field cannot be blank</mat-error>
+      <mat-error *ngIf="form.get('password')?.hasError('required')"
+        >This field cannot be blank</mat-error
+      >
     </mat-form-field>
 
-    <button class="btn btn-primary" type="submit" (click)="login()">Login</button>
+    <button class="btn btn-primary" type="submit" (click)="login()">
+      Login
+    </button>
   </form>
 
-  <a [routerLink]="'/register'" class="badge badge-primary mt-3">Not Registered?!</a>
+  <a routerLink="/register" class="badge badge-primary mt-3"
+    >Not Registered?!</a
+  >
 </div>
 
-
-
+<app-spinner *ngIf="isSubmitting$ | async"></app-spinner>

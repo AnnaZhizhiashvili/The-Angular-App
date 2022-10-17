@@ -11,22 +11,13 @@ import { LoginComponent } from './components/login/login.component';
 import { MatIconModule } from '@angular/material/icon';
 import { reducers } from './store/reducers';
 import { StoreModule } from '@ngrx/store';
-
-const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'login',
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
-];
+import { EffectsModule } from '@ngrx/effects';
+import { loginEffect } from './store/effects/login.effect';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SpinnerComponent } from '../shared/components/spinner/spinner.component';
+import { AppModule } from '../app.module';
+import { SharedModule } from '../shared/shared.module';
+import { registerEffect } from './store/effects/register.effect';
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent],
@@ -39,8 +30,11 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
-    RouterModule.forChild(routes),
     StoreModule.forFeature('auth', reducers),
+    EffectsModule.forFeature([loginEffect, registerEffect]),
+    MatProgressSpinnerModule,
+    SharedModule,
+    RouterModule,
   ],
 })
 export class AuthModule {}

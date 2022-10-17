@@ -1,1 +1,6 @@
+<ng-container *ngIf="currentUser$ | async as currentUser">
+  <app-navbar></app-navbar>
+  <h2>Hey: {{ currentUser.userName }}</h2>
+</ng-container>
+
 <router-outlet></router-outlet>

@@ -1,59 +1,44 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { environment } from '@environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { catchError, of, tap } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { RegisterRequestInterface } from '../types/register.interface';
+import {
+  LoginRequestInterface,
+  LoginResponseInterface,
+} from '../types/login.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  apiUrl = environment.apiUrl
+  apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) { }
+  constructor(private http: HttpClient) {}
 
-  register(data) {
+  register(
+    data: RegisterRequestInterface
+  ): Observable<LoginResponseInterface | null> {
     const url = this.apiUrl + '/users';
-    return this.http.post(url, data).pipe(
-      tap(() => {
-          this.toastr.success('You\'ve registered Successfully, now try to log in', '^_^', {
-            timeOut: 3000,
-            positionClass: 'toast-bottom-right',
-          });
-          this.router.navigateByUrl ('/login').then();
-        }),
-      catchError(() => {
-        this.toastr.error('Something Went Wrong!', ':/', {
-          timeOut: 3000,
-          positionClass: 'toast-bottom-right',
-        });
-        return of(null)
-      })
-    )
+    return this.http.post<LoginResponseInterface>(url, data);
   }
 
-  login(data) {
-    const url = this.apiUrl + '/login'
-    return this.http.post(url, data).pipe(
-      tap((res:any) => {
-          window.localStorage.clear();
-          window.localStorage.setItem('accessToken', res.accessToken);
-          this.router.navigateByUrl('dashboard').then();
-      }),
-      catchError(() => {
-        this.toastr.error('please try again', 'Wrong Password or Email', {
-          timeOut: 3000,
-          positionClass: 'toast-bottom-right',
-        });
-        return of(null);
-      })
-    )
+  login(
+    data: LoginRequestInterface
+  ): Observable<LoginResponseInterface | null> {
+    const url = this.apiUrl + '/login';
+    return this.http.post<LoginResponseInterface>(url, data);
   }
 
-  isLoggedIn(): boolean {
-    if(window.localStorage.getItem('accessToken')) return true;
-    return false;
+  isLoggedIn() {
+    if (this.getFromLocalStorage('accessToken')) return true;
+    else return false;
   }
 
+  setToLocalStorage(key, data) {
+    return window.localStorage.setItem(key, JSON.stringify(data));
+  }
+  getFromLocalStorage(key) {
+    return JSON.parse(window.localStorage.getItem(key)!);
+  }
 }

@@ -1,36 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { select, Store } from '@ngrx/store';
+import { AuthStateInterface } from '../../types/authState.interface';
+import { registerAction } from '../../store/actions/login.action';
+import { isSubmittingSelector } from '../../store/selectors';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
   form: UntypedFormGroup;
-
-  constructor(private fb: FormBuilder, private auth: AuthService) { }
+  isSubmitting$;
+  constructor(
+    private fb: FormBuilder,
+    private store: Store<AuthStateInterface>
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      userName: ['', [Validators.required, Validators.min(4)]],
-      password: ['', [Validators.required, Validators.min(4)]],
-      gender: ['', Validators.required]
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+        ],
+      ],
+      userName: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      gender: ['', Validators.required],
     });
-
-    this.form.valueChanges.subscribe(() => {    console.log(this.form)
-
-
-    })
-
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
   }
   registerUser() {
-    this.auth.register(this.form.value).subscribe();
-
+    this.store.dispatch(registerAction({ request: this.form.value }));
   }
-
-
 }
-

@@ -3,35 +3,35 @@ import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { catchError, of, tap } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { select, Store } from '@ngrx/store';
+import { loginAction } from '../../store/actions/login.action';
+import { isSubmittingSelector } from '../../store/selectors';
+import { AuthStateInterface } from '../../types/authState.interface';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss', '../register/register.component.scss']
+  styleUrls: ['./login.component.scss', '../register/register.component.scss'],
 })
 export class LoginComponent implements OnInit {
   form: UntypedFormGroup;
-  constructor(private fb: FormBuilder, private auth: AuthService, private toastr: ToastrService) { }
+  isSubmitting$;
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private toastr: ToastrService,
+    private store: Store<AuthStateInterface>
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
   }
 
   login() {
-    this.auth.login(this.form.value)
-      .pipe(
-        tap(() => {
-
-        }),
-        catchError(() => {
-          this.toastr.error()
-          return of(null);
-        })
-      )
-      .subscribe();
+    this.store.dispatch(loginAction({ request: this.form.value }));
   }
-
 }

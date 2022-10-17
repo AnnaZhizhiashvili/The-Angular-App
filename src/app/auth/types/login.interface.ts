@@ -1,10 +1,11 @@
+import { CurrentUserInterface } from '@shared/types/currentUser.interface';
+
 export interface LoginRequestInterface {
   email: string;
   password: string;
 }
 
 export interface LoginResponseInterface {
-  email: string;
-  gender: string;
-  id: string;
+  accessToken: string;
+  user: CurrentUserInterface;
 }
