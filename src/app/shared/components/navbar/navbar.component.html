@@ -1,6 +1,96 @@
-<mat-toolbar color="primary" class="navbar">
-  <div>Home Page</div>
-  <div>
-    <button class="btn btn-light" (click)="logOut()">Log Out</button>
-  </div>
-</mat-toolbar>
+<!--<div class="container-box header">-->
+<!--  <div class="d-flex justify-content-between align-items-center p-2">-->
+<!--    <div class="logo-container">-->
+<!--      <img src="assets/images/logo.png" />-->
+<!--    </div>-->
+<!--    <div>-->
+<!--      <mat-form-field class="example-full-width search-box d-none d-md-block">-->
+<!--        <input-->
+<!--          type="email"-->
+<!--          matInput-->
+<!--          placeholder="Write what you're looking for"-->
+<!--        />-->
+<!--        <mat-icon aria-label="search" class="position-absolute end-0"-->
+<!--          >search</mat-icon-->
+<!--        >-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
+<!--    <div class="d-flex align-items-center gap-3">-->
+<!--      <div>-->
+<!--        <a class="d-flex align-items-center gap-1" (click)="openLogin()">-->
+<!--          <mat-icon aria-label="person">person_outline</mat-icon>-->
+<!--          <span-->
+<!--            class="d-none d-sm-block"-->
+<!--            *ngIf="!(currentUser$ | async); else loggedUserIcon"-->
+<!--            >login</span-->
+<!--          >-->
+<!--          <ng-template #loggedUserIcon>-->
+<!--            <span class="d-none d-sm-block">{{-->
+<!--              (currentUser$ | async)?.userName-->
+<!--            }}</span>-->
+<!--          </ng-template>-->
+<!--        </a>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <a class="d-flex align-items-center gap-1">-->
+<!--          <mat-icon aria-label="star">star</mat-icon>-->
+<!--          <span class="d-none d-sm-block">my favorites</span>-->
+<!--        </a>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <a class="d-flex align-items-center gap-1"-->
+<!--          ><mat-icon aria-label="shopping_cart">shopping_cart</mat-icon>-->
+<!--          <span class="d-none d-sm-block">cart</span>-->
+<!--        </a>-->
+<!--      </div>-->
+<!--      <div>-->
+<!--        <a-->
+<!--          class="d-flex align-items-center gap-1 btn btn-light"-->
+<!--          (click)="logOut()"-->
+<!--        >-->
+<!--          <mat-icon aria-label="logout">logout</mat-icon>-->
+<!--          <span class="d-none d-sm-block">Log Out</span>-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<mat-sidenav-container class="main-sidenav">
+  <mat-sidenav #sidenav fixedTopGap="64" [fixedInViewport]="true">
+    <mat-list>
+      <mat-list-item>
+        <mat-form-field class="example-full-width search-box d-none d-md-block">
+          <input type="email" matInput placeholder="Search our product" />
+          <mat-icon aria-label="search" class="position-absolute search-icon"
+            >search</mat-icon
+          >
+        </mat-form-field>
+      </mat-list-item>
+      <mat-list-item
+        ><mat-icon matListIcon>home</mat-icon><a>Home</a></mat-list-item
+      >
+      <mat-list-item
+        ><mat-icon matListIcon>female</mat-icon><a>Woman's</a></mat-list-item
+      >
+      <mat-list-item
+        ><mat-icon matListIcon>male</mat-icon><a>Man's</a>
+      </mat-list-item>
+      <mat-list-item
+        ><mat-icon matListIcon>diamond</mat-icon><a>Jewelry</a></mat-list-item
+      >
+      <mat-list-item
+        ><mat-icon matListIcon>cable</mat-icon><a>Electronics</a>
+      </mat-list-item>
+      <mat-list-item
+        ><mat-icon matListIcon>groups_3</mat-icon><a>About Us</a></mat-list-item
+      >
+      <mat-list-item
+        ><mat-icon matListIcon>call</mat-icon><a>Contact</a></mat-list-item
+      >
+    </mat-list>
+  </mat-sidenav>
+  <mat-toolbar>
+    <mat-icon (click)="sidenav.open()" class="">menu</mat-icon>
+  </mat-toolbar>
+</mat-sidenav-container>
