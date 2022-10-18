@@ -7,6 +7,7 @@ import { select, Store } from '@ngrx/store';
 import { loginAction } from '../../store/actions/login.action';
 import { isSubmittingSelector } from '../../store/selectors';
 import { AuthStateInterface } from '../../types/authState.interface';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private auth: AuthService,
     private toastr: ToastrService,
-    private store: Store<AuthStateInterface>
+    private store: Store<AuthStateInterface>,
+    private dialogRef: MatDialogRef<LoginComponent>
   ) {}
 
   ngOnInit(): void {
@@ -33,5 +35,9 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.store.dispatch(loginAction({ request: this.form.value }));
+  }
+
+  cancel() {
+    this.dialogRef.close();
   }
 }

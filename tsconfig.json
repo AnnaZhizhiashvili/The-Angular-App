@@ -6,6 +6,7 @@
     "paths": {
       "@environments/*": ["environments/*"],
       "@shared/*": ["app/shared/*"],
+      "@assets/*": ["assets/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

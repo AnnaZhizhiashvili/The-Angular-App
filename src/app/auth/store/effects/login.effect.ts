@@ -7,7 +7,6 @@ import {
   LoginRequestInterface,
   LoginResponseInterface,
 } from '../../types/login.interface';
-import { RegisterRequestInterface } from '../../types/register.interface';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 

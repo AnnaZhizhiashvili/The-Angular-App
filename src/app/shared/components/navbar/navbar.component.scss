@@ -33,6 +33,9 @@ mat-toolbar {
   height: 100%;
   mat-sidenav {
     width: 234px;
+    .mat-list-item:hover {
+      box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+    }
     ::ng-deep .mat-list-item-content {
       gap: 5px;
     }

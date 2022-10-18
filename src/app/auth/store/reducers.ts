@@ -31,6 +31,7 @@ const authReducer = createReducer(
   on(actions.logOutAction, (state) => ({
     ...state,
     currentUser: null,
+    isLoggedIn: false,
   })),
   on(actions.registerAction, (state) => ({
     ...state,

@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
-import { AuthGuard } from './auth/services/auth.guard';
-import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
+import { HomeComponent } from '@shared/components/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
-    path: 'login',
-    component: LoginComponent,
+    path: 'home',
+    component: HomeComponent,
   },
   {
     path: 'register',

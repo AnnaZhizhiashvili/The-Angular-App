@@ -1,6 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap";
-@import '~ngx-toastr/toastr';
+@import "~ngx-toastr/toastr";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+  font-family: "poppins-regular";
+  src: url("assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "poppins-light";
+  src: url("assets/fonts/Poppins/Poppins-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "poppins-medium";
+  src: url("assets/fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "poppins-italic";
+  src: url("assets/fonts/Poppins/Poppins-Italic.ttf") format("truetype");
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.material-icons {
+  color: #000000ff;
+}
+.mat-list-item {
+  color: #2a2a2a !important;
+}
+
+a {
+  color: unset !important;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
