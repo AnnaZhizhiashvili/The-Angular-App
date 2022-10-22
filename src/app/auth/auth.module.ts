@@ -14,10 +14,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { loginEffect } from './store/effects/login.effect';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { SpinnerComponent } from '../shared/components/spinner/spinner.component';
-import { AppModule } from '../app.module';
 import { SharedModule } from '../shared/shared.module';
 import { registerEffect } from './store/effects/register.effect';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent],
@@ -35,6 +34,7 @@ import { registerEffect } from './store/effects/register.effect';
     MatProgressSpinnerModule,
     SharedModule,
     RouterModule,
+    MatButtonModule,
   ],
 })
 export class AuthModule {}

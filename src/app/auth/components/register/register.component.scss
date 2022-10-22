@@ -5,11 +5,14 @@
 .container-box {
   max-width: 500px;
   margin: 0 auto;
-  padding-top: 100px;
+  &.register {
+    padding-top: 130px;
+  }
 }
 
 form {
-  mat-form-field, mat-radio-group {
+  mat-form-field,
+  mat-radio-group {
     width: 100%;
   }
   button {
@@ -22,4 +25,3 @@ form {
   font-size: 14px;
   color: black;
 }
-

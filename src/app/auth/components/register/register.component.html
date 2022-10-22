@@ -1,4 +1,4 @@
-<div class="d-flex flex-column container-box">
+<div class="d-flex flex-column container-box register">
   <h2 class="pb-3">Register</h2>
   <form class="d-flex flex-column align-items-center" [formGroup]="form">
     <mat-form-field appearance="outline">
@@ -46,12 +46,18 @@
       <mat-radio-button value="'Male'">Male</mat-radio-button>
     </mat-radio-group>
 
-    <button class="btn btn-primary mt-4" type="submit" (click)="registerUser()">
+    <button
+      mat-raised-button
+      color="primary"
+      class="mt-4"
+      type="submit"
+      (click)="registerUser()"
+    >
       Register
     </button>
   </form>
 
-  <a routerLink="/login" class="badge badge-primary mt-3"
+  <a class="badge badge-primary mt-3" (click)="openLogin()"
     >Already have an Account?</a
   >
 </div>

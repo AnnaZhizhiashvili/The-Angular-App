@@ -4,6 +4,8 @@ import { select, Store } from '@ngrx/store';
 import { AuthStateInterface } from '../../types/authState.interface';
 import { registerAction } from '../../store/actions/login.action';
 import { isSubmittingSelector } from '../../store/selectors';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +17,8 @@ export class RegisterComponent implements OnInit {
   isSubmitting$;
   constructor(
     private fb: FormBuilder,
-    private store: Store<AuthStateInterface>
+    private store: Store<AuthStateInterface>,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -35,5 +38,10 @@ export class RegisterComponent implements OnInit {
   }
   registerUser() {
     this.store.dispatch(registerAction({ request: this.form.value }));
+  }
+  openLogin() {
+    this.dialog.open(LoginComponent, {
+      width: '500px',
+    });
   }
 }

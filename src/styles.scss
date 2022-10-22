@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap";
 @import "~ngx-toastr/toastr";
+@import "./material";
+@import "./color-palette";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 @font-face {
   font-family: "poppins-regular";
@@ -26,13 +29,7 @@ html,
 body {
   margin: 0;
   height: 100%;
-}
-
-.material-icons {
-  color: #000000ff;
-}
-.mat-list-item {
-  color: #2a2a2a !important;
+  font-family: "poppins-regular";
 }
 
 a {
@@ -41,11 +38,15 @@ a {
   cursor: pointer;
 }
 
-html,
-body {
-  height: 100%;
+.pointer {
+  cursor: pointer;
 }
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+a:hover,
+.mat-list-item:not(.search-item):hover {
+  color: $indigo !important;
+  .mat-icon {
+    filter: invert(18%) sepia(70%) saturate(2886%) hue-rotate(226deg)
+      brightness(101%) contrast(74%);
+  }
 }

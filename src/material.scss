@@ -1,0 +1,40 @@
+@import "./color-palette";
+
+.main-sidenav {
+  height: 100%;
+  mat-sidenav {
+    width: 234px;
+    .mat-list-item:not(.search-item):hover {
+      box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+      cursor: pointer;
+    }
+    ::ng-deep .mat-list-item-content {
+      gap: 5px;
+    }
+  }
+}
+
+mat-toolbar,
+.container-box,
+mat-sidenav-container,
+mat-sidenav {
+  font-size: 16px;
+  font-family: "poppins-regular";
+  color: #2a2a2a !important;
+}
+
+mat-toolbar {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.mat-list {
+  padding-top: 27px !important;
+}
+.search-item {
+  .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: unset !important;
+  }
+  .mat-form-field.mat-focused .mat-form-field-label {
+    color: unset !important;
+  }
+}
